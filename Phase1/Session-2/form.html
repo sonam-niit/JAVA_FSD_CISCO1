@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Demo</title>
+</head>
+<body>
+    <h3>Registration Form</h3>
+    <hr>
+    <!-- By default the form method is get -->
+    <form name="register" action="register.jsp" method="get">
+        
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname" id="fname" placeholder="Enter your First Name here" value="John" />
+        <br><br>
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname" id="lname" placeholder="Enter your Last Name here" value="Doe" />
+        <br><br>
+
+        <input type="submit" value="Register" />
+    </form>
+    <!-- When the form submitted its redirect to action page which is register.jsp with the data
+    visible in the URL because the method is get -->
+</body>
+</html>
