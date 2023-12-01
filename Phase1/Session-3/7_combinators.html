@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* All Paragraphs Apply CSS */
+        /* div p{
+            background-color: aqua;
+        } */
+        /* Select Only Direct Child No Grand child
+         and grand grand childs */
+        /* div>p{
+            background-color: aqua;
+        } */
+        /* Select Only First Sibling */
+        /* div+p{
+            background-color: aqua;
+        } */
+        /* Select All Siblings */
+        div~p{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Direct Child div Para 1</p>
+        <p>Direct Child div Para 2</p>
+
+        <section>
+            <p>Grand Child div Para 3</p>
+            <p>Grand Child div Para 4</p>
+
+            <article>
+                <p>Grand Grand Child Div Para 4</p>
+            </article>
+        </section>
+    </div>
+    <p>Siblings Div 1</p>
+    <p>Siblings Div 1</p>
+    <p>Siblings Div 1</p>
+</body>
+</html>

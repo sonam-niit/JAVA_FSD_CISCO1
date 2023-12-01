@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Website Layout</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+        }
+        header,footer{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        main{
+            flex: 1; /*Takes the remaining Space */
+            padding: 20px;
+        }
+        .container img{
+            float: left;
+        }
+        .container input{
+            float: right;
+            height: 30px;
+            width: 30%;
+            margin-top: 20px;
+            border: 2px solid white;
+            outline: none;
+            border-radius: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://machinecon.analyticsindiamag.com/wp-content/uploads/2023/06/Simplilearn-Logo.png"
+            height="80">
+            <input type="search">
+        </header>
+        <main>
+            <h2>Main Content</h2>
+            <p>Here we will add out main content</p>
+        </main>
+
+        <footer>
+            <p>Footer</p>
+        </footer>
+    </div>
+</body>
+</html>

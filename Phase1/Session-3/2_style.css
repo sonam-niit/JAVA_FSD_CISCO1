@@ -1,0 +1,9 @@
+h1{
+    color: maroon ;
+    background-color: aqua;
+}
+p{
+    background-color: palegreen;
+    color: brown;
+}
+/* For adding own priority choose !important */
