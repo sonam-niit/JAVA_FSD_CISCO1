@@ -1,0 +1,199 @@
+==============================================================================
+Git and GitHub
+--------------------------------
+
+Version Control: v1, v2, v3
+
+CVCS
+	--store on central server
+DVCS
+	--online work
+	--dependent on single backup
+	--automatic branching and merging
+	--rapid feedbacs
+	--flexibility to work in online as well as offline mode
+
+Git: is popular VCS., open source, free DVCS, 
+	supports Code distribution, work on non-liner flows,internet hosting
+
+
+Git Local // Bitbucket Software
+-------------------
+install git in our system.
+
+https://git-scm.com/download/
+
+install by follwing the default installation steps
+---------------------------------------------------------
+open cmd:
+
+git --version
+
+Git Remote:
+-----------------------
+github.com /Bitbucket.com
+
+--------------------------------------------------------------------
+
+To make a folder as a git repo
+
+step 1: git init (initialized an empty repo to that folder)
+
+	(create one hidden .git folder inside the same)
+
+step 2: git add filename (it will add the perticular file to its staging area)
+
+	if you want add more files (all files) >git add .
+
+step 3: git status (to check staging status)
+step 4: git commit -m "message"
+	(add staging files to loca repo)
+setp 5: git push -u origin main
+	(push to remote repo)
+step 6: check commit status: git log
+	-- git log --oneline
+	-- git log --online n=2
+
+for setting up the configurations
+--> git config --global user.name "sonam-niit"
+--> git config --global user.email "sonam@gmail.com"
+
+When we create online (Remote repo)
+--------------------------------------
+by default branch is master
+you can use other name as the default branch as well
+--git branch -M main (now default branch is main)
+
+Before push you need to setup the origin
+--git add remote origin "path of your git repo"
+
+Sometimes if you are facing issue with password:
+github--> settings --> developres setting --> tokens -->generate token --> give name and check on repo checkbox --> generate token and use that token as password.
+
+===================================================================================================================
+
+Branching and Merging
+-----------------------------
+check selected branch 
+--git branch
+
+Create new Branch
+--git branch dev1Sonam
+--git branch dev1Pavan
+
+Rename the branch
+-->git branch -m dev1Pavan dev2Pavan
+
+check all branches 
+--git branch --list
+
+To Clone repo
+--git clone origin-path
+
+to fetch means fetch all remote branched
+--git fetch --all origin-path
+
+
+to work with diffrent branch switching is required
+--git checkout dev1Sonam
+
+If you now create some folder like loginregister and create 2 files login.html and register.html
+-- git add .
+-- git commit -m "Login Register Module done"
+-- git push -u origin dev1Sonam
+(it will push the newly created code to the Sonam's Branch)
+
+In Browser if you refresh you can see compare and pull request
+
+--click on the same check, verify and then pull.
+
+so the dev1Sonam branch will merge with main branch.
+
+(This merge is called as Remote Merge)
+
+
+********************************************************************************
+If you want to do local merge and then push
+
+--git checkout main
+--git log --oneline
+--git merge dev1Sonam
+--git log --oneline (merging looks fine)
+
+--git commit -m "merged with login"
+--git push -u origin main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
