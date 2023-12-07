@@ -1,0 +1,56 @@
+-Create Database EMS
+-create Employee table:
+	(empId, name,salary,designation, department, hiredate)
+-insert some records:
+	
+Queries
+------------------------------
+1. Retrive ALl Employees
+2. Retrive name as EmployeeName and salary from employee table
+3. Retrive Employees earning salary more than 50,000
+4. Retrive employees whose designation 'Data Analyst'
+5. Retrive those whose salary is between 60,000 to 70,000
+6. Retrive Employee Details in alphabetical order by name
+7. Retrive Total no of employees
+8. Retrive Avg Salary as average_salary of employees
+9. Retrive top 5 highest paid employees.
+10. Retrive employees with their tenure
+	select *, DATEDIFF(NOW(),hire_date) as tenure from employees;
+
+11. Select the no of count based on their department.
+12. Retrive top 3 designations with highest average salary.
+
+	select designation,avg(salary) as avgsal
+	from employee 
+	group by designation 
+	order by avgsal desc 
+	limit 3;
+13. Retrive employees with salaries greater than the avarage salary of their respective designation.
+
+	select * from employee where salary>
+	(select avg(salary) from employee emp
+	where emp.designation= employee.designation)
+
+	(Sub query)
+
+14. Retrive employees who joined after the employees with the lowest employee_id;
+
+	select * from employee
+	where hiredate > (select min(hiredate) from employees)
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	

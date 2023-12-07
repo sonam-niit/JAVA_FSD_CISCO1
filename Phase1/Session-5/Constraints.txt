@@ -1,0 +1,94 @@
+SQL Contstraingths: rules which are applied to a column or set of columns to enforce and integrety with data.
+
+Primary Key
+----------------------------
+--Ensures a column uniquly indetified each row in table
+--one table can have only one Primary key
+--must be unique and can not be NULL
+
+ create table students(student_id int primary key,name varchar(256), age int );
+
+-- insert into students values (null, 'sonam',45); 
+//column value can not be null
+
+-- insert into students values (1, 'sonam',45);
+	(repeated id gives duplicate error)
+
+
+*** Composite key ***********
+
+A primary key with the combination of 2 columns, then called composite primary key.
+
+create table orders(
+	order_id int,
+	product_id int,
+	PRIMARY KEY(order_id,product_id)
+)
+
+******************* Foreign key constraint **************************
+
+Ensures a refrensial integrity by linking the key column in one table with the another tables key column.
+(one tabe PK we can use as FK in another table)
+
+-- We can have multiple FK at one table.
+
+> create table category(id int, name varchar(256), description varchar(256));
+> alter table category add primary key (id);
+> create table products(
+	id int, 
+	name varchar(256),
+	price double,
+	rating float,
+	catid int, 
+	foreign key (catid) references category(id));
+
+*********************** Unique Constraint **********************
+ensures that all the values in column are unique.
+
+create table employees(employee_id int primary key, email varchar(256) unique, department varchar(256));
+
+
+**************** Check Constraints ********************************
+
+Check some specific conditions.
+
+>create table data(id int primary key, price float, check (price>0));
+
+
+******************* Not NULL Constraints *****************************
+
+Column can not have NUll values
+
+>create table customers (id int primary key, name varchar(256) not null,email varchar(256));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

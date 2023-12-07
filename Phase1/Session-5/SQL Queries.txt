@@ -1,0 +1,496 @@
+Create User:
+>create user admin@localhost identified by "admin123";
+
+To See the created User:
+>select user, host from mysql.user;
+
+See the available databases
+>show databases;
+
+Create a new Database;
+>create database cisco;
+
+use the database;
+>use cisco;
+
+Create Table
+-------------------
+use multiple fields like id,name, email etc..
+what will be the data type?
+
+create table students (id INT PRIMARY KEY, fname VARCHAR(20), lname VARCHAR(20), email VARCHAR(40), password varchar(30))
+
+Int will store numerics values
+primary key for unique identification
+varchare variable character
+
+Once table created to see the table structure:
+>describe students;
+
+Insert Records in Table
+---------------------------------------------
+
+(here you have to maintain the field sequence)
+>insert into students values (1, 'sonam', 'soni', 'sonam@gmail.com', 'Sonam@123');
+
+to see the inserted records
+>select * from students;
+
+>insert into students (id,fname,email) values (2,'alex','alex@gmail.com'); //password and lname store null in DB
+
+>insert into students (id,lname,email,password,fname) values (3, 'devid','john@gmail.com','john@123','John');
+
+
+Create One More tables
+--------------------------------------
+create table product(pid int PRIMARY KEY,
+name varchar(100),
+brand varchar(100), 
+price double,
+color varchar(100), 
+rating float);
+
+describe product; //see the structure
+
+show tables; //see tables available in Database
+
+Create table user(
+	uid int primary key,
+	name varchar(100),
+	phone varchar(16),
+	email varchar(256)
+);
+
+-------------------------------------------
+Add 2 more columns in above table (Alter query)
+
+>Alter table user add age int,add weight float;
+
+remove column from table;
+
+>alter table user drop column weight;
+
+
+Make a copy of user table and give the name customer
+
+Create table customer(
+	uid int primary key,
+	name varchar(100),
+	phone varchar(16),
+	email varchar(256)
+);
+
+insert into customer (uid,name,phone,email) values (1,'alex','9876543210','alex@gmail.com');
+
+insert into customer (uid,name,phone,email) values (2,'bob','9876543210','bob@gmail.com');
+
+select * from customer;
+
+--------- Truncate (delete all records from the table and recreates a table structure)
+>truncate table customer;
+
+------- drop table (delete the table from database)
+>drop table customer;
+
+Let's use some extra things to our table (constraints)
+
+> create table user(
+	uid int primary key AUTO_INCREMENT,
+	name varchar(256),
+	phone varchar(16),
+	email varchar(256) NOT NULL
+);
+
+> insert into user (name,phone,email) values ('sonam','9876543210','sonam@gmail.com');
+
+Insert multiple values
+
+>insert into user (name,phone,email) values 
+('alex','9876543210','alex@gmail.com'),
+('bob','9876543210','bob@gmail.com'),
+('catty','9876543210','catty@gmail.com'),
+('devid','9876543210','devid@gmail.com');
+
+****** Update Statements ******************
+
+> update user set phone= '7689543210' where uid=2;
+
+if you forgot to add where clause the it will update all the rows.
+
+>update user set phone='8654245260';
+
+************* Detete Records **************************
+
+>delete from user where uid=1;
+
+if you not write where clause then it behaves similar like truncate.
+
+>delete from user;
+
+Drop database;
+----------------------
+drop database cisco;
+
+(drop full database with tables and all records stores inside the same)
+
+
+******************** Select Queries ***************************************
+
+create table user(
+	uid int primary key AUTO_INCREMENT,
+	name varchar(256),
+	phone varchar(16),
+	email varchar(256) NOT NULL,
+	age int default 26,
+	city varchar(256)
+);
+
+insert into user (name,phone,email,age,city) values 
+('sia','+91 9876543210', 'sia@cisco.com',23,'Bangalore'),
+('kim','+91 9999943210', 'kim@cisco.com',23,'Chennai'),
+('harry','+91 9009943210', 'harry@cisco.com',31,'Chennai'),
+('jacob','+91 9999900009', 'jacob@cisco.com',23,'Bangalore'),
+('noa','+91 9123456789', 'noa@cisco.com',30,'Pune'),
+('sonam','+91 9900003210', 'sonam@cisco.com',40,'Mumbai')
+
+********* Select All ***************
+
+Select * from user;
+
+select name,email,city from user;
+
+**** Where Clause
+
+>select * from user where name= 'sonam';
+>select name,age from user where name= 'sonam';
+>select name,age from user where age>=30;
+>select * from user where age>=30;
+>select id,name,email from user where city='Bangalore';
+
+>select name as UserName, city as Place from user where city='Bangalore';
+
+(as used for giving alias name of you column field)
+
+****** Cobining multiple conditiona using logical operators
+
+>select * from user where city='Bangalore' and age<=25;
+(fetch only those who are from bacngalore and also having age <=25)
+
+>select * from user where city='Bangalore' or age>=25;
+(fetch all recodrs whose city= bangalore or whose age >=25)
+
+************ Sort data
+
+> select * from user Order By name; (ascending)
+> select * from user Order By name DESC; (descending)
+
+> select * from user Order By age;
+> select * from user Order By age,name; (when multiple users have same name second order will manged by name)
+
+*************** Group By Clause
+(when you use aggeregate functions like count, max, min, sum) those values you cna group by
+
+>select count(uid),city from user group by city;
+
+****************Aggerate Function
+
+> select count(*) as Records from user;
+
+> select min(age) from user;
+
+>select min(age) Younger ,max(age) Elder  from user;
+
+(Last inserted Id)
+
+>select max(uid) from user;
+
+(Sum of Age)
+
+>select sum(age) from user;
+>select sum(age) from user where city="chennai";
+
+(Average)
+
+>select avg(age) from user;
+>select avg(age) from user where city='Bangalore';
+>select avg(age),city from user group by city;
+
+
+******************  Give the limits while fetching records ************
+
+>select * from user order by name DESC limit 3;
+
+Skip first 3 records and take next 3 
+
+>select * from user order by name DESC limit 3 OFFSET 3;
+
+
+For getting not repeated records
+-----------------------------------------
+> select Distinct age from user;
+
+In Operator
+------------------
+>select * from user where city='chennai'
+>select * from user where city='chennai' or city='Bangalore';
+
+Above query we can rewrite using In operator
+
+>select * from user where city in ('chennai','Bangalore');
+>select * from user where city in ('chennai','Bangalore','Mumbai');
+
+>select * from user where city not in ('Mumbai','Pune');
+
+>select * from user where not age=23; (fetch only those whose age is not 23)
+
+Between (Range)
+-------------------------------------
+select * from user where age between 25 and 30;
+
+(Can you re write the same query in another way)
+--select * from user where age in(25,30);
+--select * from user where age>=25 and age<=30;
+
+***** Select Data based on some pattern
+--starts with s
+
+>select * from user where name like 's%'; (starts with s)
+> select * from user where name like 's__%'; (starts with s and minimum characters 3 required)
+> select * from user where name like 's__'; (starts with s and name can have only 3 alphabets)
+
+> select * from user where name like '__a'; (name starts with any 2 letters and ends with a)
+
+>select * from user where name like 'j%b'; (name starts with j and ends with b inbetween any number of values we can give)
+
+Order of Query execution.
+------------------------------------------
+
+1. FROM
+2. Where
+3. Group By
+4. Having 
+5. select
+6. order by
+7. limit/offset
+
+Table: Employee (empId, fname,lname,salary, deptid)
+
+-- 
+Select * From Employees
+Where deptid=1
+group by deptid
+having avg(salary)>50000
+order by deptid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

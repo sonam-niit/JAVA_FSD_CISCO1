@@ -1,0 +1,120 @@
+Data
+-----------------------
+Information
+
+Based on the data only you can take effective decisions.
+
+Organizations need data and predictive analysis to develop a better products.
+
+Data must be stored in some organized storage,
+Database system htlp in collecting a huge amount of data and store it in very organized, structured  format.
+
+What id Database?
+------------------------------------------
+Computer Based record keeping system.
+
+Database is an organized collection of data stored in some structured format on a computer system which we can easily access.
+
+The system used with the Database called DBMS (database management system)
+
+It allows as to store, retrival, manupulating and manage the data with proper security.
+
+Data + DBMS + Application = DS (database system)
+
+-----------------------------------------------------------------
+Types of Databases
+------------------------------
+
+Relational Database
+Network Database
+Non Sequel Database (MongoDB, CoutchDB, Cassandra, memcache)
+
+
+
+Relational Database
+----------------------------------
+Storing information in the form of Tables
+
+tables having rows and columns
+
+columns : Fields / tuples
+rows : records
+
+When you have huge amount of data, all you can't store in one table for the same you required multiple tables to store data
+
+CatgeoryTable ProductTable (you can make relationships between tables)
+
+1 category can have many products (1 to many)
+
+Diffrent names of Relational DB
+---------------------------------------------
+
+MYSQL
+Oracle
+MS SQL Server
+PostgreSQL
+SQlite
+MS Access
+========================================================
+
+How to work with all these databases? for that we required to learn a query langugae which is SQL (structured Query language)
+PL SQL (Procedural Language /SQL)
+
+MYSQL is most popular databases.
+--> easily access and research data
+--> Easily do all data manupulation (DML)
+--> Create and change tables (DDL)
+--> Fetch Data (DQL)
+
+DDL (Data Defination Language)
+
+	create some structure / alter /drop the databases
+
+DML (Data Manupulation Language)
+
+	insert/update /delete / truncate 
+
+DQL (Data query langugae)
+	
+	fetch data from Databases
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
