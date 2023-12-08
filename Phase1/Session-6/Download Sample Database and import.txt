@@ -1,0 +1,116 @@
+Download Sample Database and import in your system for practice
+-----------------------------------------------------------------
+
+Download zip file: https://github.com/datacharmer/test_db
+
+unzip the same
+
+open that folder in cmd
+
+mysql -u root -p -t < employees.sql
+Enter your password: 
+
+It will dump the full db with data in your MYSQL DB
+
+------------------------------------------------------------------
+For those who are getting erro like mysql not found as internal external command
+
+C:\Program Files\MySQL\MySQL Server 8.1\bin
+
+set the path to the sytem env variables
+
+this PC--> properies --> env variables --> click on environment variables --> click on path --> new and paste the mysql bin path -->OK-->OK -->OK
+
+
+For data verification:
+
+> mysql -u root -p -t < test_employees_md5.sql
+
+>/usr/local/mysql/bin/mysql -u root -p -t < test_employees_md5.sql
+
+For use
+---------------------------
+Connect with MYSQL
+
+use employees;
+
+show tables;
+
+select * from employees limit 5;
+
+-------------------------------------------------------------------------------------------
+
+1. Find the number of Male and Female employees in the database and the order count in descending order.
+
+2. Find the Average salary by employee title and order by descending order.
+
+	SELECT e.title, AVG(s.salary) AS average_salary FROM titles as e JOIN salaries as
+s ON e.emp_no = s.emp_no GROUP BY e.title order by average_salary desc;
+
+3. List first 5 employees (id,fname,lname,department name) alog with their department names.
+
+	select e.emp_no,concat(e.first_name,' ',e.last_name) as FullName, dept.dept_name
+	from employees e
+	join dept_emp d_emp on e.emp_no = d_emp.emp_no
+	join departments dept on d_emp.dept_no = dept.dept_no limit 5;
+
+4. Display firstname, lastname,salary of the highest payed employee.
+
+	select concat(e.first_name,' ',e.last_name) as employee_name, s.salary
+	from employees e
+	join salaries s on e.emp_no = s.emp_no
+	where s.salary = (select max(salaries.salary) from salaries);
+
+
+5. second highest payed employee
+
+	select concat(e.first_name,' ',e.last_name) as employee_name, s.salary
+	from employees e
+	join salaries s on e.emp_no = s.emp_no
+	where s.salary < (select max(salaries.salary) from salaries)
+	order by s.salary desc limit 1 ;
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,368 @@
+Joins
+--------------------------------
+
+Relationships between tables
+
+When we are creating multiple table we can integrate them with the help of PK and FK constraints.
+
+Once tables are linked to fetch the data we are using JOINs.
+
+Normalization
+-------------------------
+Organize our data to reduce redundancy and improve the data integrety. To do the same we have multiple Normal forms that we can follow for doing normalization.
+
+1NF
+2NF
+3NF
+BCNF
+4NF
+5NF
+
+1 NF : Check your table is in 1 NF or not?
+
+-- check your table must contains atomic(individual) values and each row must be unique. 
+
+2 NF: First check your table is in 1 NF or not?
+	
+	--no partial dependencies should exist.
+	(every non-prime attribute must be fully dependent on the table's primary key.)
+
+	Authour_Name and Author_Email is actully dependent on Author_Id not on Book_Id
+	So this is a partial dependency that we remove by seperating our table in to another table
+	
+	Let's convert it in 2 NF.
+
+3 NF: First check it is in 2NF ? Yes
+
+	check no transitive dependency should exist.
+	when a non-prime attribute depends on another non prime attribute rather than depending on a primary key.
+
+
+1. Author table: Author_Id (PK)
+2. Authers Email table: AUthor_ID(FK), Email (one to one relation ships)
+3.Book table: Book_id (PK), AUthor_ID(FK)
+
+	(1 Author has written many books)
+
+===================================================================================================
+
+To work with Joins
+----------------------
+
+Let's create 2 tables
+
+create table department(did int primary key auto_increment,name varchar(256));
+
+create table employees (eid int primary key auto_increment,ename varchar(256), 
+			dept_id int,
+			foreign key (dept_id) references department(did));
+
+
+Insert records in tables:
+
+insert into department (name) values ('IT'),('HR'),('Finance');
+
+insert into employees (ename,dept_id) values ('Alex',1),('Bob',1),('Coral',3),('David',2),('Eka',2),('Fiyoni',3);
+
+********** Inner Join ****************
+
+Select the records having matching values in both the tables.
+
+Select employees.eid EmployeeId,employees.ename EmployeeName,department.name DepartmentName
+From employees
+inner join department
+on employees.dept_id = department.did;
+
+*************** Outer Join **********************
+
+It returns common records from both the tables also all the records from left side table.
+
+Add some extra fields in both tables
+>insert into department (name) values ('Marketing'),('Sales');
+
+> insert into employees (ename) values ('John'),('sonam');
+
+(Employees don't have any department which I have just inserted)
+
+
+Select e.eid EmployeeId,e.ename EmployeeName,d.name DepartmentName
+From employees as e
+left join department as d
+on e.dept_id = d.did;
+
+
+******** Right Join *********************
+
+Return all common values and also extra which is avaible in right table.
+
+Select e.eid EmployeeId,e.ename EmployeeName,d.name DepartmentName
+From employees as e
+right join department as d
+on e.dept_id = d.did;
+
+
+*********** Full Join ***********************
+return all common data, left table data and right table data
+
+(Full Outer Join is not supported My SQL but we can achieve the same using union all operator)
+
+
+Select e.eid EmployeeId,e.ename EmployeeName,d.name DepartmentName
+From employees as e
+left join department as d
+on e.dept_id = d.did
+
+Union all
+
+Select e.eid EmployeeId,e.ename EmployeeName,d.name DepartmentName
+From employees as e
+right join department as d
+on e.dept_id = d.did;
+
+************* Self Join ***************************
+
+A self join used for some specific cases where you wnat to join same table for data retrival.
+
+Alter table employees add manager_id int; (add column)
+(add constraint for mapping eid as FK of manager_id)
+alter table employees add constraint FK_Manager_Employee foreign key (manager_id) references Employees(eid);
+
+(update some employees manager)
+update employees set manager_id=4 where eid=5;
+(update some more by your own)
+
+(Join Same table)
+select e.eid as 'Employee Id',e.ename as Employee,m.ename as Manager
+from employees e
+left join employees m
+on e.manager_id = m.eid;
+
+
+******************** MYSQL Operators **********************
+
+Union, Intersect, Except, Not Exist etc.....
+
+Product Table
+--------------------------
+create table products(
+	ProductID int primary key auto_increment,
+	ProductName varchar(50),
+	Category varchar(50)
+);
+
+
+insert into Products (ProductName,Category)
+Values ('Laptop','Electronics'),
+('Table','Furniture'),
+('Smart Phone','Electronics'),
+('Desc Chair','Furniture'),
+('HeadPhones','Electronics');
+
+
+******Union *****************
+select ProductName from products where Category = "Electronics"
+UNION
+select ProductName from products where Category = "Furniture";
+
+***** Intersect ****************
+
+(Insert some Common Values)
+
+insert into Products (ProductName,Category)
+Values 
+('Table','Electronics'),
+('Desc Chair','Electronics')
+----------------------------------------------------------------------------------
+
+select ProductName from products where Category = "Electronics"
+intersect
+select ProductName from products where Category = "Furniture";
+
+(get some products which is available in both electronics category + furniture category);
+
+Except and Minus
+
+(some thing which is available one query but not in the another)
+
+select ProductName
+from Products
+where category= 'Electronics'
+AND ProductName Not In(
+	select ProductName From Products where category= 'Furniture'
+);
+
+================================================================================
+Above query using not exist (Error check)
+
+select ProductName
+from Products
+where Category = 'Electronics' AND NOT
+EXISTS (
+	select ProductName
+	FROM Products p2
+	where p2.ProductName=products.ProductName AND 
+	p2.Category = 'Furniture'
+);
+
+********************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

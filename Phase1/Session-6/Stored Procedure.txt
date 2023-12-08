@@ -1,0 +1,44 @@
+Stored Procedure
+-----------------------
+set of SQL statementswhich can be stored in DB as function and those statements we can execute later, rather that writing the same query again and again.
+
+DELIMITER //
+CREATE PROCEDURE getallproducts()
+BEGIN
+	SELECT * from Products;
+END //
+
+DELIMITER ;
+
+CALL getallproducts(); //Call function
+
+====================================================================================
+
+DELIMITER //
+CREATE PROCEDURE getProductsByCategory(IN categoryName VARCHAR(50))
+BEGIN
+	SELECT * from Products
+	where Category = categoryName;
+END //
+
+DELIMITER ;
+
+CALL getProductsByCategory('Electornics');
+CALL getProductsByCategory('Furniture');
+
+
+*************** Comments in query **************
+
+ select * from products; -- where category='Electronics';
+(single line comments)
+
+Multiline comments
+-----------------------------------
+/* Statement
+statement
+statements */
+Select * from products;
+
+
+
+

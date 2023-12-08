@@ -1,0 +1,28 @@
+-- Create a table
+Create Table Students(
+	StudentId INT primary key auto_increment,
+	StudentName varchar(50),
+	Age int
+);
+
+-- Insert data into table
+Insert into students(StudentName,Age)
+values
+('Alex',22),
+('Bob',25),
+('Catty',32);
+
+-- Query all students
+select * from students;
+
+-- add a new column to the table
+alter table students
+add column grade varchar(2);
+
+-- Update data in the table
+update students
+set grade = 'A'
+where age>=21;
+
+-- query with updated data
+select * from students;
