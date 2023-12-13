@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Array
+        let array= [1,2,3,4,5,6,7,8]; 
+        let array1=[1,2,"sonam","cisco",56<78,undefined,null,parseInt(67.89)];
+
+        console.log(array);
+        console.log(array1);
+
+        //create array
+        let arr1= [];//empty array
+        let arr2= new Array(10);//created array with size 10
+
+        arr1[0]=20;
+        arr1[1]=90;
+
+        arr2[0]=45;
+        arr2[3]=90;
+        console.log(arr1);
+        console.log(arr2);
+
+        //print array
+        for(let i=0;i<array.length;i++){
+            console.log(array[i]);
+        }
+        //for of loop (taking values)
+        for(let value of array1){
+            console.log(value);
+        }
+        //for in loop (give index)
+        for(let index in array1){
+            console.log(index+" "+array1[index]);
+        }
+    </script>
+</body>
+</html>

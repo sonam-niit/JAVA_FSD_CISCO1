@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //print(); //this line will give you an error.
+        //function expression
+        const print= function(){
+            console.log("print function called");
+        }
+        print();
+        //function returning a value
+        const welcome=function(name){
+            return 'Welcome '+name;
+        }
+
+        const result= welcome('Alex'); //catching the result
+        console.log(result);
+        console.log(welcome('John')); //directly print the return result in console
+    </script>
+</body>
+</html>

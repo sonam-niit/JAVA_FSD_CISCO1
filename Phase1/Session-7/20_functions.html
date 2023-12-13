@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        print(); //calling function before initialization
+        greeting('sonam soni');
+        //function defination
+        //function without any parameter
+        function print(){
+            console.log("Print function called...!!");
+        }
+        //name is parameter (parameterized function)
+        function greeting(name){
+            console.log(`Welcome ${name}`);
+        }
+
+        print();//function calling
+        greeting("John Doe"); //Argument
+        greeting('John Devid'); 
+    </script>
+</body>
+</html>

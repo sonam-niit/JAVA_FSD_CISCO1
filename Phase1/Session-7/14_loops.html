@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let i=1;
+        document.write('<h1>While Loop</h1>')
+        while(i<=5){
+            document.write(`<h5>${i}</h5>`);
+            i++;
+        }
+        document.write("<p>Loop terminated: "+i+"</p>");
+        document.write('<h1>Do While Loop</h1>')
+        do{
+            document.write(`<h5>${i}</h5>`);
+            i++;
+        }while(i<=10);
+        document.write('<h1>For Loop</h1>')
+        for(let j=1;j<=5;j++){
+            document.write(`<h5>${j}</h5>`);
+        }
+        document.write("<h6>Loop Completed "+j+"</h6>");
+    </script>
+</body>
+</html>

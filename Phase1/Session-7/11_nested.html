@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const num= prompt("Enter Your Age...");
+
+        if(num>=18){
+            
+            const input= prompt("Enter 1 for Adhar Card, 2 for PAN Card any other for nothing..");
+            if(input==1 || input==2){
+                document.write(`<h1>Voting completed successfully</h1>`);
+            }
+            else{
+                document.write(`<h1>Kindly come with the valid Indetity Proof</h1>`);
+            }
+        }else{
+            document.write(`<h1> Your are not Valid for vote, 
+                Kindly come after ${18-num} Years</h1>`);
+        }
+    </script>
+</body>
+</html>

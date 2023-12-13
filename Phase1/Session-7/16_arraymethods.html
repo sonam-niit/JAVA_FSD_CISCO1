@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr1= [];
+        arr1.push(10);
+        arr1.push(20); //add element at last index.
+        arr1.push(30);
+        console.log(arr1);
+        arr1.unshift(40);//add element at first index (0)
+        console.log(arr1);
+
+        console.log(arr1.pop()+" Removed");//remove last index
+        console.log(arr1);
+
+        console.log(arr1.shift() + " Removed"); //remove from 1st Index
+        console.log(arr1);
+        arr1.push(30,40,50,60);
+        console.log(arr1);
+        arr1.unshift(70,80,90);
+        console.log(arr1);
+        //splice method
+        arr1.splice(3,0,67,89) //insert element between 2 numbers
+        console.log(arr1);
+        //replacement
+        arr1.splice(7,1,33);//30 is replaced by 33
+        console.log(arr1);
+        //delete
+        arr1.splice(4,1);
+        console.log(arr1);
+        
+    </script>
+</body>
+</html>
