@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function checkScope() {
+
+            if (true) {
+                var name = "sonam soni";
+                let age = 56;
+                const grade = 8.6;
+
+                console.log(`Var inside Block: ${name}`);
+                console.log(`Let inside Block: ${age}`);
+                console.log(`Const inside Block: ${grade}`);
+            }
+
+            console.log(`Var Outside Block,inside the function: ${name}`);
+           // console.log(`Let Outside Block,inside the function: ${age}`);
+           // console.log(`Const Outside Block,inside the function: ${grade}`);
+        }
+
+        checkScope();
+
+        console.log(`Outside the function: ${name}`);
+        //console.log(`Outside the function: ${age}`);
+        //console.log(`Outside the function: ${grade}`);
+    </script>
+</body>
+
+</html>

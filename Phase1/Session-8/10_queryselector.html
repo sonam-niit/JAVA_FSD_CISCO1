@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        #blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <h1 class="red"></h1>
+    <h1 id="blue"></h1>
+    <script>
+        document.querySelector("h1").innerHTML="Hello From Simple H1";
+        document.querySelector(".red").innerHTML="Tag with Class selector";
+        document.querySelector("#blue").innerHTML="Tag with Id selector"
+    </script>
+</body>
+</html>

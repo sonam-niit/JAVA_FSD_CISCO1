@@ -1,0 +1,10 @@
+<!-- Interpolation -->
+<div class="container">
+    <h3>Welcome {{name}}</h3>
+    <a [href]="url">Click Me</a>
+    <br>
+    <img *ngIf="flag" [src]="imgURL" height="300">
+    <!-- Property Binding -->
+    <img [src]="logoUrl" height="70">
+    <button (click)="clickMe()">Click Me</button>
+</div>

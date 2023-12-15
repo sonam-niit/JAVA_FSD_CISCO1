@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter Your name" id="name"/>
+    <h1 id="heading">Hello...</h1>
+    <button onclick="show()">Click</button>
+    <button onclick="clearData()">Clear Data</button>
+    <script>
+        const name= document.getElementById('name');
+        const h1Ele=document.getElementById('heading');
+        function show(){
+            if(name.value==""){
+                alert("Name cannot be empty");
+            }else{
+                h1Ele.innerHTML="Welcome "+name.value;
+            }
+
+        }
+        function clearData(){
+            h1Ele.innerHTML="";
+            name.value='';
+        }
+    </script>
+</body>
+</html>
