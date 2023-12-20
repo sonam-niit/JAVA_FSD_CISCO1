@@ -1,9 +1,15 @@
-<div class="container">
+<!-- <div class="container">
   <h1>Parent Component</h1>
   <h3>Value Coming from Child Component: {{cdata}}</h3>
   Enter Message <input type="text" #ptext 
   (keyup)="0" />
 
-  <!--Pass Data from Parent to child-->
-  <app-child [pdata]="ptext.value" (cevent)="cdata=$event"></app-child>
+  Pass Data from Parent to child-->
+ <!-- <app-child [pdata]="ptext.value" (cevent)="cdata=$event"></app-child>
+</div> -->
+<div class="container">
+  <app-user-list></app-user-list>
+  <!-- <app-templatedrivenform></app-templatedrivenform> -->
+  <!-- <app-products></app-products>
+  <app-twoway></app-twoway> -->
 </div>

@@ -1,0 +1,121 @@
+1. Component Directives
+-----------------------------------
+with any component you will get the same as below
+
+@Component({
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
+})
+
+means each component has its own templates and logic.
+
+2. Structural Directive
+-------------------------
+which you can use with Structure of DOM.
+
+you easily identify then because its startes with astric symbol. *ngFor, *ngIf, *ngSwitch
+
+
+3. Attribute Directive
+--------------------------------
+Chnage in the appearance or behaviour of an element.
+
+[ngSwitch], ngStyle, ngClass
+
+
+4. Custom Directive
+----------------------------
+
+create your own ts file for the custome directive
+Highlight.ts
+
+import { Directive, ElementRef, Renderer2 } from "@angular/core";
+
+@Directive({
+    selector:'[highlight]'
+})
+export class HighlightDirective{
+    //initialized 2 values in my constructor
+    constructor(el:ElementRef,render:Renderer2){
+        render.setStyle(el.nativeElement,'background-color','yellow')
+    }
+}
+
+declare the same in your app.module.ts
+
+import the directive and add it in the list of declaration
+
+and then use in any of your component: app.component.html
+
+ <h1 highlight>Custom Directive</h1>
+ 
+(Hre highlight is selector written in directives code.)
+
+
+
+==================================================================================
+1 way binding
+
+---- template to element (html to ts) --> event Binding --> ()
+---- element to template (ts to html) --> Property Binding --> []
+
+We want the combination of Above 2 template to element and element to template together: [()]
+
+[(ngModel)]
+
+this is available in FormsModule so we have to import the same in app.module.ts
+
+=============================================================================================
+
+Forms
+-----------------------------
+Angular is having 2 types of forms
+
+1. Template Driven forms:
+	HTML driven form, simple directives like ngModel
+	Less Control
+	syntax is very simple
+	
+2. Reactive Forms:
+	Code Driven Form	
+	more control
+	explicit validations
+	dynamic forms
+	to create the same we will use form Builder service
+
+	import ReactiveFormsModule to work with the Reactive Forms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

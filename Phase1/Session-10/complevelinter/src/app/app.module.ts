@@ -4,15 +4,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChildComponent } from './child/child.component';
+import { ProductsComponent } from './products/products.component';
+import { TwowayComponent } from './twoway/twoway.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TemplatedrivenformComponent } from './templatedrivenform/templatedrivenform.component';
+import { HighlightDirective } from './CustomerCodes/HighlightDirective';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChildComponent
+    ChildComponent,
+    ProductsComponent,
+    TwowayComponent,
+    TemplatedrivenformComponent,
+    HighlightDirective,
+    ReactiveformComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

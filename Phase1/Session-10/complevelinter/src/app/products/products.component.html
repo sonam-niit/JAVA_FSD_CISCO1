@@ -1,0 +1,41 @@
+<!--Iteration we can use directive called *ngFor-->
+
+<!-- <p *ngFor="let p of products">
+    {{p.pid}} {{p.name}}
+</p> -->
+
+<h3 class="text-center">Product List</h3>
+<div *ngIf="showProducts">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products">
+                <td>{{p.pid}}</td>
+                <td [class.inStock]="true">{{p.name}}</td>
+                <td [ngClass]="{'inStock':isInStock}">{{p.price}}</td>
+                <td [style.font-weight]="700" [style.color]="p.rating>=4.5?'green':'red'">{{p.rating}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<h3 [ngStyle]="{'color':textColor,
+'font-size':fontSize+'px'}">Switch Demo</h3>
+<div [ngSwitch]="userRole">
+    <div *ngSwitchCase="'admin'">
+        Welcome Admin..!!
+    </div>
+    <div *ngSwitchCase="'HR'">
+        Welcome HR..!!
+    </div>
+    <div *ngSwitchDefault>
+        Welcome Guest..!!
+    </div>
+</div>
