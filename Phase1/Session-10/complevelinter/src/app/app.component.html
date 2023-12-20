@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Parent Component</h1>
+  <h3>Value Coming from Child Component: {{cdata}}</h3>
+  Enter Message <input type="text" #ptext 
+  (keyup)="0" />
+
+  <!--Pass Data from Parent to child-->
+  <app-child [pdata]="ptext.value" (cevent)="cdata=$event"></app-child>
+</div>
