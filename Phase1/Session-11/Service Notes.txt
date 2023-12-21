@@ -1,0 +1,111 @@
+Angular Service
+---------------------------
+
+Parent child relationships in component then we can comunicate between them using Input Output and EventEmitter.
+
+But what if the component don't have any relationships and then you want to comminate.
+
+Take help of Service, which we can inject to any of our component for use.
+No need to create its instance, just declare them in constructor and we can use the same.
+
+Also, the same code you wnat to reuse in your multiple components means you want to make a reusable code then you should use service.
+
+
+Service doen't have any template like component so simple to communicate between your components you can use service.
+
+
+Consumer: Any component/directive/ service where you can use service
+
+Dependency: means the the service object which you want use any where as dependency
+
+DI Token: maintain dependency as unique
+
+Provider: maintains all dependency(track all services)
+
+Ibjector: Holds all providers / check and Resolve dependency maintain 1 object of your dependency through out your application.
+
+How to create service?
+
+ng g s user
+
+==============================================================================================================
+CRUD Operations 
+-----------------------------------------
+
+1. create App: ng new service
+2. move to the folder: cd service
+3. open the same in VS code: code .
+4. start the app: npm start
+
+5. Create Model user.ts in models folder.
+6. create service named user inside the services folder
+    ng g s services/user --skip-tests
+   edit user.service.ts 
+
+7. add your service in app.module.ts in the list of providers.
+	providers: [UserService],
+8. create 3 components
+	ng g c users/list --skip-tests 	
+	ng g c users/userform --skip-tests 
+	ng g c users/userdetail --skip-tests 
+9. Let's work with User Form Component
+	userform.component.ts file
+	userform.component.html file
+
+	(in constructor I have injected formBuilder dependency for creating form, router Dependency for programatic route, service depenency to add User in Array)
+
+10. List Component
+	list.component.ts
+	list.component.html
+
+	(ts is using service dependency to fetch all users details)
+
+11. Details Component
+	.ts and .html edited.
+
+	used service dependency to fetch User based on Id, route dependency to read userId which is coming from URL
+	
+	displayed Data in HTML
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

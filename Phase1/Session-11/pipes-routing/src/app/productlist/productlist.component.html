@@ -1,0 +1,15 @@
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th><th>Name</th><th>Price</th><th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td><a routerLink='details/{{p.id}}' class="btn btn-success">View</a></td>
+        </tr>
+    </tbody>
+</table>

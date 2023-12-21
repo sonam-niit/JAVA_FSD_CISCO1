@@ -1,0 +1,23 @@
+<h3>Case Format Pipe</h3>
+<hr>
+<p>{{name | uppercase}}</p>
+<p>{{name | lowercase}}</p>
+<h3>Number Format</h3><hr>
+<p>1.5-5=={{pi | number : '1.5-5'}}</p>
+<p>2.3-7=={{pi | number : '2.3-7'}}</p>
+<p>4.10-10=={{pi | number : '4.10-10'}}</p>
+<h3>Date Pipe</h3><hr>
+<p>Today is {{today}}</p>
+<p>Today is {{today | date}}</p>
+<p>Today is {{today | date : 'shortDate'}}</p>
+<p>Today is {{today | date : 'longDate'}}</p>
+<p>Today is {{today | date : 'dd/MM/yyyy'}}</p>
+<h3>Currency Pipe</h3><hr>
+<p>In USD: {{num1 | currency:'USD':true:'5.2-2'}}</p>
+<p>In EURO: {{num2 | currency:'EUR':true:'1.4-4'}}</p>
+<p>In INR: {{num1 | currency:'INR':true:'5.2-2'}}</p>
+<h3>JSON Pipe</h3>
+<p>Without JSON: {{jsonObject}}</p>
+<p>With JSON: {{jsonObject | json}}</p>
+<h3>Custom Pipe</h3><hr>
+<p>{{message | convertSpace : '-' }}</p>

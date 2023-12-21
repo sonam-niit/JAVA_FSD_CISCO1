@@ -1,0 +1,81 @@
+Pipes
+----------------------------------
+whenever you declare the data its in ts file, displaying the same its in the template(.html) file
+
+You can directly format this data in the html template using pipes.
+
+In angular we have many built in pipes but if you want to create your own (custom pipes) you can create.
+
+Custom Pipes you cna create using Pipe and PipeTransform Interface which you need to import from Angular Core
+--------------------------------------------------------------------------------------------------------------
+
+Step 1: Create AllSpaceConversion.ts file
+
+import { Pipe, PipeTransform } from "@angular/core";
+
+@Pipe({name:'convertSpace'})
+export class AllSpaceConversion implements PipeTransform{
+    
+    transform(value: string, char: string) {
+        return value.split(' ').join(char);
+    }
+}
+
+Step:2 add it in the app.module.ts in declaration.
+
+  declarations: [
+    AppComponent,
+    PipesComponent,
+    AllSpaceConversion
+  ]
+Step3: for Use declare on variable in pipes.component.ts file
+  message:string='Welcome to the World of Angular'
+
+Step4: format it using our pipe pipes.component.html
+
+<h3>Custom Pipe</h3><hr>
+<p>{{message | convertSpace : '-' }}</p>
+
+=========================================================================================
+Create Custom Pipe automatically
+
+ng g p Custompipes/Hello  
+
+it will created hello.pipe.ts file in CustomPipes folder and automatically get imported in app.module.ts file.
+
+Skip test then use --skip-tests flag to your command
+
+ng g p Custompipes/changeSpace --skip-tests
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

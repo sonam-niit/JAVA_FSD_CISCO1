@@ -17,10 +17,13 @@
                 <td>{{u.lastname}}</td>
                 <td>{{u.email}}</td>
                 <td>{{u.password}}</td>
-                <td><button class="btn btn-danger" (click)="deleteUser(u.id)">X</button></td>
+                <td>
+                    <button class="btn btn-success">view</button>
+                    <button class="btn btn-danger" (click)="deleteUser(u.id)">X</button></td>
             </tr>
         </tbody>
     </table>
 
     <app-reactiveform (userAdded)="onUserAdded($event)"></app-reactiveform>
+    <app-userdetails></app-userdetails>
 </div>

@@ -1,0 +1,22 @@
+<div>
+    <h3>About Us</h3>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam corrupti esse aut ratione dolorem expedita
+        architecto voluptate provident ad, ut fugit totam culpa sed, deleniti magnam officia autem temporibus suscipit.
+    </p>
+    <nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" 
+                routerLink="history" 
+                routerLinkActive="active">History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="finance" routerLinkActive="active">Finance</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="row" style="border: 2px solid blue; padding: 5px;">
+        <router-outlet></router-outlet>
+    </div>
+</div>

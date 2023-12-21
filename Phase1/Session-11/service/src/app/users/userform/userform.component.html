@@ -1,0 +1,55 @@
+<div class="row">
+    <h1>Add User</h1>
+    <div class="col-lg-6">
+        <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>FirstName</label>
+                <input type="text" formControlName="firstname" class="form-control" 
+                [ngClass]="{'is-invalid':submitted && form['firstname'].errors }"
+                [(ngModel)]="user.firstname">
+
+                <div *ngIf="submitted && form['firstname'].errors" class="invalid-feedback">
+                    FirstName cannot be Empty
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" formControlName="lastname" class="form-control"
+                [ngClass]="{'is-invalid':submitted && form['lastname'].errors }"
+                [(ngModel)]="user.lastname">
+
+                <div *ngIf="submitted && form['lastname'].errors" class="invalid-feedback">
+                    LastName cannot be Empty
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email Id</label>
+                <input type="email" formControlName="email" class="form-control"
+                [ngClass]="{'is-invalid':submitted && form['email'].errors }"
+                [(ngModel)]="user.email">
+
+                <div *ngIf="submitted && form['email'].errors" class="invalid-feedback">
+                    <div *ngIf="form['email'].errors['required']">
+                        EmailId cannot be empty
+                    </div>
+                    <div *ngIf="form['email'].errors['email']">
+                        EmailId is not Valid
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                <input type="text" formControlName="country" class="form-control"
+                [ngClass]="{'is-invalid':submitted && form['country'].errors }"
+                [(ngModel)]="user.country">
+
+                <div *ngIf="submitted && form['country'].errors" class="invalid-feedback">
+                    <div *ngIf="form['country'].errors['required']">
+                        country cannot be empty
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add User</button>
+        </form>
+    </div>
+</div>

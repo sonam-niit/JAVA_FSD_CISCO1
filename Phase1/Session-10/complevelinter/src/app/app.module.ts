@@ -11,6 +11,7 @@ import { TemplatedrivenformComponent } from './templatedrivenform/templatedriven
 import { HighlightDirective } from './CustomerCodes/HighlightDirective';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserListComponent } from './user-list/user-list.component';
     TemplatedrivenformComponent,
     HighlightDirective,
     ReactiveformComponent,
-    UserListComponent
+    UserListComponent,
+    UserdetailsComponent
   ],
   imports: [
     BrowserModule,
