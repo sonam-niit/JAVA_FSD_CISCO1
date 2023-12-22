@@ -1,0 +1,24 @@
+<h3>Products List</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.rating}}</td>
+            <td>
+                <a routerLink="details/{{p.id}}" class="btn btn-success">view</a>
+                <a routerLink="editproduct/{{p.id}}" class="btn btn-primary ms-2">edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

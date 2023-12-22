@@ -1,0 +1,23 @@
+<form class="col-md-6" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Id</label>
+        <input type="number" class="form-control" placeholder="Enter Id"
+        [(ngModel)]="product.id" name="id"/>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Enter Product Name"
+        [(ngModel)]="product.name" name="name"/>
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" class="form-control" placeholder="Enter price"
+        [(ngModel)]="product.price" name="price"/>
+    </div>
+    <div class="form-group">
+        <label>rating</label>
+        <input type="text" class="form-control" placeholder="Enter Rating"
+        [(ngModel)]="product.rating" name="rating"/>
+    </div>
+    <button type="submit">Add Product</button>
+</form>

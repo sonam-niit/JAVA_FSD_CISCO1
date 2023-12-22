@@ -47,6 +47,35 @@ Skip test then use --skip-tests flag to your command
 
 ng g p Custompipes/changeSpace --skip-tests
 
+***************************************************************************************************************
+Routing
+
+Angular provides SPA (single Page App) so all components we are adding in app.component.html file
+
+how to create links and by clicking on links wants to open diffrent components. --> Use Routing
+
+It helps you route between diffrent components.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

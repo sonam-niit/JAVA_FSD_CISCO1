@@ -1,0 +1,114 @@
+HTTPCLientModule is basically helping us for fetching APIs Data.
+
+Data we are going to fetch in the Form of JSON.
+
+When you trigger the APIs you will get promises. (then or catch, async await)
+
+Observables in Angular
+
+	to use them you need to subscribe.
+
+Using HTTP client we can trigger diffrent types of methods like get, post, put, delete, patch
+
+get: (get all data)
+post: (create new data)
+put: (update data)
+delete delete data
+patch: add some new patch to your existing data.
+
+Create App: ng new httpclient
+> cd httpclient
+> code .
+>npm start
+
+Open VS Code and execute below commands
+
+>ng g s services/user --skip-tests
+>ng g c users/userlist --skip-tests
+
+create one folder named models and create new file user.model.ts 
+
+export interface User{
+    id:number;
+    name:string;
+    username:string;
+    email:string;
+    address:Address;
+    company:Company;
+    phone:string;
+    website:string;
+}
+interface Address{
+    street:string;
+    suite:string;
+    city:string;
+    zipcode:string;
+}
+interface Company{
+    name:string;
+    catchPhrase:string;
+    bs:string;
+}
+
+Now open user.service.ts file and add one Base URL for API call.
+
+baseURL:string='https://jsonplaceholder.typicode.com/users';
+
+For API call we required HTTPClientModule so let's import the same in app.module.ts
+
+import {HttpClientModule} from '@angular/common/http';
+
+add in the list of imports:
+
+	imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
+
+Let's write API calls in user.service.ts
+
+================================================================================================
+
+
+We want to create our own fake server which we can create by just creating a simple JSON and start it with JSON server.
+
+>npm i -g json-server
+
+create one file named products.json
+
+{
+	products:[
+			{id:1,name:"Headphones",price:499,rating:4.5},
+			{id:2,name:"Samsung LED",price:67999,rating:4.7}
+		]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
