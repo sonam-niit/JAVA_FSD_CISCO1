@@ -18,6 +18,7 @@
             <td>
                 <a routerLink="details/{{p.id}}" class="btn btn-success">view</a>
                 <a routerLink="editproduct/{{p.id}}" class="btn btn-primary ms-2">edit</a>
+                <button (click)="delete(p.id)" class="btn btn-danger ms-2">delete</button>
             </td>
         </tr>
     </tbody>

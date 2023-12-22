@@ -14,4 +14,10 @@ export class ProductlistComponent {
   ngOnInit(){
     this.service.getAllProducts().subscribe(ob=>this.products=ob);
   }
+  delete(id:number){
+    //api to delete from backedn
+    this.service.deleteById(id).subscribe(()=>alert("Product Deleted"));
+    this.products= this.products.filter((item)=>item.id!==id);
+    //refresh products array to show a quick changes
+  }
 }

@@ -26,4 +26,7 @@ export class ProductService {
     return this.http.put(this.baseURL+"/"+id,product)
     //update the perticular Id with Given Product Object
   }
+  deleteById(id:number){
+    return this.http.delete(this.baseURL+"/"+id);
+  }
 }

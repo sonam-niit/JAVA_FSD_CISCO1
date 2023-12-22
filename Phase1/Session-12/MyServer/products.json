@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Boat Headphones",
       "price": 499,
-      "rating": 4.5
+      "rating": "4.7"
     },
     {
       "id": 2,
@@ -23,12 +23,6 @@
       "name": "Pencil Box",
       "price": 100,
       "rating": "4.6"
-    },
-    {
-      "id": 8,
-      "name": "Smart Watch",
-      "price": 999,
-      "rating": "5.0"
     }
   ]
 }
