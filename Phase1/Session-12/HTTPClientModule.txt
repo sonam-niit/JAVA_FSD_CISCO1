@@ -84,6 +84,27 @@ create one file named products.json
 		]
 }
 
+Once JSON file created
+
+open terminal: npm i -g json-server
+>json-server products.json
+
+It will show you like server started and 
+localhost:3000/products
+
+localhost:3000/products/1 (first product details)
+
+Now keep your server running and let's move to our angular APP to get Data.
+
+Edit:
+create new component
+ng g c products/editproduct --skip-tests
+
+copy the same layout of ProductForm Page and make some few changes like heading, id make disables and button name save button.
+
+Edit ts file to get the details.
+
+
 
 
 
