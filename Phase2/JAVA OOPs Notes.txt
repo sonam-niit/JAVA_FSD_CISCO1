@@ -1,0 +1,118 @@
+Polymorphism
+-----------------
+poly morph (many forms)
+
+1 thing can be utilized in many forms called Polymorphism
+
+2 types
+---------
+1. Static Polymorphism(method overloading)
+
+It same class if you want to write similar kind of logics then you can use same method name but parameter must be diffrent.
+
+So compiler will Identify which method to call at the time of compilation thats why it is called Compile time polymorphism/ static polymorphism/ method overriding
+
+
+2. Dynamic Polymorphism(method overriding)
+
+If 1 method is in parent class and same method is available in child class the child will override the parent class method and use its Own method which is called Method Overriding.
+
+=========================================
+Encaptulation
+
+Hiding your data or wrapping your data in some wrapper when you provide it to the user.
+
+Hiding the data make variables private
+To access them outside the class use getters and setters method
+
+==================================
+Interface
+
+Interface is used to create body of you class which can have only abstract methods (the methods which have its name only but no body)
+
+interface Car{
+	public void start();
+	public void stop();
+	public void changeGear();
+}
+
+OOPS
+
+Class / Objects (new)
+
+>Constructor:	used to initialize an Object
+		same name as class name
+		when you create object its called automatically
+		if you not provide any constructor then compiler generate default constructor
+		we can create more than 1 constructor in one class but make sure parameters are
+		differnt because here its also implementing method overloading.
+>Encaptulation: create variables private and access them using wrapper called getters/setters
+>Inheritance: Reusability of code by inherit parent class Property
+		child can access all the Parent class Properties except private
+		If child wants to access its own method + parent method then use super keyword
+		when you create child class Object its call first Parent class Constructor by 
+		default. (super())
+>Multiple Inheritance is not supported in Java due ambigutity means one class can only extends one class
+>if you want to extend multiple fuctionalities then its possible only with interface.
+>Interface can have only method declaration, no defination
+>if you want to use then create class implement interface, implement its method and then use the same.
+>Use This keyword to access class level variable,methods and constuctors we can use This key word.
+
+>Static keyword is used with variables and functions
+	>static variable is initialized once and its become a class variable for all the objects its common
+	>static methods we can access directly without creating any object of that class.
+>Final:
+	varaible: constant
+	method: can not override
+	class: cannot inherit
+> class extends class
+class implements interface1,interface2,interface3
+class extends class implements inte1,inte2,inte3
+Interface extends interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
