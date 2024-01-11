@@ -1,0 +1,110 @@
+It is a BuildTool
+Using that we can manage wide range of modules to streamline the development process and also ensure the project built, deployed successfully.
+
+Apache Maven is a project management and building tool.
+Following POM Model: Project Object Model
+
+With maven: Project Building, Reporting, Documentation
+
+What is meaning of Builing a Project
+
+--Generate Source Code
+-- Generate Documentation from Source Code
+--Compile Source Code
+--Compile the code packages into its JAR filr
+--install the external packages in repository
+
+How to create Maven project in Eclipse
+---------------------------------------------
+1. Create Java Project
+
+
+select File --> new --> maven project --> next --> From the catalog dropdown --> select Internal --> Select maven-archtype-quickstart--> next -->
+give group id: com.cisco
+archtype Id: (Project Name): session-4
+see the package name: com.cisco.session4 --> finish
+
+It will create project (If its gives any POP up in console see the project configuration and type Y so the project is geeting generated)
+
+Expand the project and you can see src/main/java here we will add our JAVA Code (by default App.java file must be there with main method)
+src/main/test (where you can wrte your Unit Test cases to test your application)
+you can see the JRE by default
+you can see the available maven dependencies in your project
+src folder is showing your java files and test files
+target folder is Empty --> if you comppile and package your application it will create JAR file of your Project
+
+POM.XML : Heart of Maven project (provide all configuration details)
+
+	You can add all dependencies, plugins, configuration of your project here.
+	Version and snapshot file name also you can change here
+
+--> project --> run as --> maven build --> type in goals : compile package (create JAr)
+--> project --> run as --> maven clean (clean target folder_
+--> project --> run as --> maven install (do compile, package and build app and provide Jar file)
+--> project --> run as --> maven verify --> to verify the project build
+
+Once the snapshot Jar generated you can run project by execting below command in CLI
+open the target folder in cmd
+>java -cp session4-0.0.1-SNAPSHOT.jar com.cisco.session4.App
+
+-cp (showing classpath config) means main method class Path
+-com.cisco.session4.App (where my main method is located)
+
+(you can see your project output in terminal)
+
+2. Create Web App maven Project
+-----------------------------------------
+
+File--> maven project --> next--> catalog:internal --> select webapp archtype --> provile gorupid:com.cisco archtypeId: first-webapp --> package name (com.cisco.first-webapp) --> finish
+
+Webapp by default gives one error to resolve 
+
+open pom.xml and add servlet API dependency
+
+<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+</dependency>
+
+
+Save POM.xml
+
+right click on your project --> maven --> update project and error will remove from the project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

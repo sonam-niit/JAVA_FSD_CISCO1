@@ -1,0 +1,294 @@
+MongoDB is a No SQL Database which is used to store a huge amount data which is not structured and when you want to do data analysis you can use this NO SQL Database.
+
+How to STore Data
+------------------------
+create Databaase
+create collections (tables)
+create Documents (row or records)
+
+Documents are like JSON Objects
+	
+	{
+		"_id":1234567890,
+		"name":"Test",
+		"email":"email"
+	}
+
+
+BSON (Binary JSON)
+
+You can execute queries MQL (MongoDB Query Language)
+
+
+Download MongoDB Community Server 
+install the same with default installation steps, also allow to install mongodb compass
+==============================================================================================
+
+Created account on mongoDB Atlas
+
+create one cluster/deployment named cluster0
+
+open It and with that we can connect our local system.
+
+
+Open your lab
+--------------------------
+open terminal
+------> for getting the install steps of Mongosh click on connect 
+	click on mongoshell then select OS to ubantu and click on How To link
+
+	you will be redirected to page where all installation command mentioned.
+
+	If you are getting some lock error then execute below command to resolve.
+
+	sudo lsof /var/lib/dkpg/lock-frontend
+	sudo kill -9 4450
+	sudo rm /var/lib/dkpg/lock-frontend
+
+Again try to install
+
+last check mongo version-- mongosh --version
+
+Now copy connectivity link from atlas and paste it
+
+mongosh "mongodb+srv://cluster0.kggk6aj.mongodb.net/" --apiVersion 1 --username sonam_cisco
+
+(Change User name to yours)
+
+--> Enter the password and you will be inside your Mongo shell
+
+For clearing the Mongo Screen use shortcut ctrl+L
+
+Check database by using below command:
+show databases;
+
+Once you are connected with your Database, the default DB is test.
+
+to create new DB
+>use ecommerce
+create collection
+>db.createCollection('product');
+Insert One Record in Collection
+>db.product.insertOne({name:"Pen",price:20,desc:"easy to use",rating:4.7,quantity:80})
+Retrive all
+>db.product.find();
+
+Insert Many records you can use InsertMany function
+>db.product.insertMany([
+{name:"HeadPhone",price:559,desc:"nice quality",rating:4.4,quantity:50},
+{name:"Laptop",price:79999,desc:"Lenovo ThinkPad",rating:4.9,quantity:30}
+])
+
+Retrive Data based on product name
+>db.product.find({name:"HeadPhone})
+
+Fetch only few data for each records
+>db.product.find({},{name:1,price:1,quantity:1});
+Fetch Without Id
+>db.product.find({},{name:1,price:1,quantity:1,_id:0});
+
+---------------------------------------------------------------------
+Update Queries
+
+>db.product.updateOne({name:"HeadPhone"},{$set:{price:999}})
+
+Update Many Records
+
+>db.product.updateMany({},{$inc:{rating:0.1}});
+
+
+Operators in MongoDB
+-----------------------------
+$gt(greter than Operator)
+
+>db.product.find({quantity:{$gt:50}})
+>db.product.find({quantity:{$lt:50}})
+>db.product.find({quantity:{$lte:50}})
+>db.product.find({quantity:{$gte:50}})
+
+$eq (equal) & $ne (not equal)
+
+>db.product.find({name:{$ne:"Pen"}})
+>db.product.find({name:{$eq:"Pen"}})
+
+
+$in and $nin (in and not in to compare more than one value
+
+>db.product.find({name:{$in:["Pen","Pencil"]}})
+>db.product.find({name:{$nin:["Pen","Pencil"]}})
+
+Logical Operators for combining conditions like logical OR and AND
+
+>db.product.find({$or:[{quantity:{$gt:50}},{rating:{$gt:4.5}}]})
+>db.product.find({$and:[{quantity:{$gt:50}},{rating:{$gt:4.5}}]})
+
+Fetch Records whose quantity is between 50 to 80
+>db.product.find({$and:[{quantity:{$gte:50}},{quantity:{$lte:80}}]})
+another way
+>db.product.find({quantity: {$gte: 50, $lte: 80}});
+
+
+$nor (will get all the records except the given condition)
+
+>db.product.find({$nor:[{name:"Laptop"},{name:"HeadPhone"}]})
+
+$not 
+
+>db.product.find({rating:{$not:{$gte:4.5}}})
+
+-----------------------------------------------------------------------------
+I am updating few Records with some new Property
+
+>db.product.updateOne({name:"Laptop"},{$set:{category:"electronics"}})
+>db.product.updateOne({name:"HeadPhone"},{$set:{category:"electronics"}})
+
+fetch Those records where the category property exist
+
+>db.product.find({category:{$exists:true}})
+
+
+***** Aggregation Function **************
+
+>db.product.updateOne({name:"Pen"},{$set:{category:"stationary"}})
+>db.product.updateOne({name:"Pencil"},{$set:{category:"stationary"}})
+
+>db.product.aggregate([{$group:{_id:"$category",NoOfProducts:{$sum:1}}}])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
