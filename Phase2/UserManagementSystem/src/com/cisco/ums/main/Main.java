@@ -11,6 +11,10 @@ import com.cisco.ums.model.User;
 public class Main {
 
 	public static void main(String[] args) {
+		int id=0;
+		String name="";
+		String email="";
+		String country="";
 		UserDAO dao= new UserDAOImpl();
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Welcome to User Management Sytem");
@@ -24,11 +28,11 @@ public class Main {
 			case 1: 
 				System.out.println("Enter your Name:");
 				sc.nextLine();
-				String name= sc.nextLine();
+				name= sc.nextLine();
 				System.out.println("Enter your Email");
-				String email=sc.nextLine();
+				email=sc.nextLine();
 				System.out.println("Enter your Country Name");
-				String country= sc.nextLine();
+				country= sc.nextLine();
 				User user= new User(name,email,country);
 				if(dao.createUser(user)>0) {
 					System.out.println("User Created successfully");
@@ -38,14 +42,14 @@ public class Main {
 				break;
 			case 2:
 				System.out.println("Enter Id for Update");
-				int id= sc.nextInt();
+				id= sc.nextInt();
 				System.out.println("Enter Name");
-				String name1= sc.next();
+				name= sc.next();
 				System.out.println("Enter Country");
-				String country1= sc.next();
+				country= sc.next();
 				User newUser= new User();
-				newUser.setName(name1);
-				newUser.setCountry(country1);
+				newUser.setName(name);
+				newUser.setCountry(country);
 				User resp=dao.updateUser(newUser, id);
 				if(resp!=null) {
 					System.out.println("User Updated successfully, below is the updated User");
@@ -67,8 +71,8 @@ public class Main {
 				break;
 			case 4:
 				System.out.println("Enter the ID which you want to delete");
-				int id2= sc.nextInt();
-				if(dao.deleteUser(id2)) {
+				id= sc.nextInt();
+				if(dao.deleteUser(id)) {
 					System.out.println("User deleted successfully");
 				}else{
 					System.out.println("No User found for Delete");
@@ -76,8 +80,8 @@ public class Main {
 				break;
 			case 5:
 				System.out.println("Enter the ID which you want to search");
-				int id1= sc.nextInt();
-				User u= dao.getUserById(id1);
+				id= sc.nextInt();
+				User u= dao.getUserById(id);
 				if(u!=null) {
 					System.out.println(u);
 				}else {
