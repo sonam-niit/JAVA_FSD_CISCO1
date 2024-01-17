@@ -1,5 +1,7 @@
 package com.cisco.ums.main;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 import com.cisco.ums.dao.UserDAO;
@@ -35,10 +37,54 @@ public class Main {
 				}
 				break;
 			case 2:
+				System.out.println("Enter Id for Update");
+				int id= sc.nextInt();
+				System.out.println("Enter Name");
+				String name1= sc.next();
+				System.out.println("Enter Country");
+				String country1= sc.next();
+				User newUser= new User();
+				newUser.setName(name1);
+				newUser.setCountry(country1);
+				User resp=dao.updateUser(newUser, id);
+				if(resp!=null) {
+					System.out.println("User Updated successfully, below is the updated User");
+					System.out.println(resp);
+				}else {
+					System.out.println("No User available for Update");
+				}
+				break;
 			case 3:
+				List<User> list= dao.getAllUsers();
+				if(list.size()==0) {
+					System.out.println("No user Added in DB yet");
+				}else {
+					Iterator<User> itr= list.iterator();
+					while(itr.hasNext()) {
+						System.out.println(itr.next());
+					}
+				}
+				break;
 			case 4:
+				System.out.println("Enter the ID which you want to delete");
+				int id2= sc.nextInt();
+				if(dao.deleteUser(id2)) {
+					System.out.println("User deleted successfully");
+				}else{
+					System.out.println("No User found for Delete");
+				}
+				break;
 			case 5:
-			case 6:
+				System.out.println("Enter the ID which you want to search");
+				int id1= sc.nextInt();
+				User u= dao.getUserById(id1);
+				if(u!=null) {
+					System.out.println(u);
+				}else {
+					System.out.println("No user Found");
+				}
+				break;
+			case 6: System.exit(0); break;
 			default:
 				System.out.println("Kindly enter the Correct Input");
 				
