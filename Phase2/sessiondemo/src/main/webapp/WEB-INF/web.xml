@@ -4,4 +4,24 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>VerifyUser</filter-name>
+  	<display-name>VerifyUser</display-name>
+  	<description></description>
+  	<filter-class>com.cisco.web.VerifyUser</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>VerifyUser</filter-name>
+  	<url-pattern>/profile</url-pattern>
+  </filter-mapping>
+  <servlet>
+  	<servlet-name>ProfileServlet</servlet-name>
+  	<display-name>ProfileServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.cisco.web.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ProfileServlet</servlet-name>
+  	<url-pattern>/profile</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -4,30 +4,24 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/dashboard")
-public class Dashboard extends HttpServlet {
+public class ProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
+   
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		PrintWriter out= resp.getWriter();
 		resp.setContentType("text/html");
 		HttpSession session= req.getSession();
 		String email=(String) session.getAttribute("email");
-		out.print("<h3>Dashboard Page</h2>");
-		out.print("<h3>Welcome "+email+"</h3>");
 		
-		out.print("<a href='logout'>Logout</a>");
-		
-		out.print("<a href='profile?name="+email+"'>Profile</a>");
-		
+		PrintWriter out= resp.getWriter();
+		out.print("<h3>Profile Page</h3>");
+		out.print("<h2>Welcome "+email+"</h2>");
 	}
 
 	
