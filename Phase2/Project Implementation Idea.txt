@@ -1,0 +1,51 @@
+Model
+---------------
+User: id,name,email,address,phone,batchNo=0 by default
+Batch: id,name start time,endtime,noOfParticipant
+
+Dao
+------------
+AddUser
+UpdateUser
+DeleteUser
+ViewAllUsers
+ViewAllUsersByBatchNo
+
+addBatch
+viewAllBatch
+viewBatchById
+
+DaoImpl
+-------------------------
+
+
+
+UI
+---------------------------
+index.html (admin login)
+-------------------------------
+Dashboard
+	addUser  ViewAllUsers  addBatch viewAllBatch
+
+
+
+	viewAllUsers: provide all users in table show button for edit,delete, add toBatch
+
+	addToBatch: addtoBathc?uid=20 
+
+		fetchAllBatches using DAO and Show with dropdown
+		
+		addUsertoBatch(id,option)
+		trigget the update query
+		update user set batchNo=option where id=?
+
+
+
+
+
+
+
+
+
+
+	
