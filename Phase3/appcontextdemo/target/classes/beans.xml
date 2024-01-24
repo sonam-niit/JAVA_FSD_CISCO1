@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="s1" class="com.cisco.appcontextdemo.bean.Student" 
+	init-method="myInit" destroy-method="myDestroy">
+		<property name="id" value="1"></property>
+		<property name="name" value="Alex"></property>
+	</bean>
+
+	<bean id="s2" class="com.cisco.appcontextdemo.bean.Student" scope="prototype">
+		<property name="id" value="2"></property>
+		<property name="name" value="bobby"></property>
+	</bean>
+
+	<!-- more bean definitions go here -->
+
+</beans>

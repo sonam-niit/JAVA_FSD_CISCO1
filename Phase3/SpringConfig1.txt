@@ -1,0 +1,96 @@
+Create Maven Quick Start Project
+-------------------------------------
+groupId: com.cisco
+artifactId: appcontextdemo
+package: com.cisco.appcontextdemo
+
+open POM.xml add Context Dependency
+-------------------------------------------
+<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.3.15</version>
+		</dependency>
+
+Create Class Student in Beans Package.
+-----------------------------------------------
+package com.cisco.appcontextdemo.bean;
+
+public class Student {
+
+	private int id;
+	private String name;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + "]";
+	}
+	
+	
+}
+
+=========================================================================================
+Create beans.xml file
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="s1" class="com.cisco.appcontextdemo.bean.Student">
+		<property name="id" value="1"></property>
+		<property name="name" value="Alex"></property>
+	</bean>
+
+	<bean id="s2" class="com.cisco.appcontextdemo.bean.Student">
+		<property name="id" value="2"></property>
+		<property name="name" value="bobby"></property>
+	</bean>
+
+	<!-- more bean definitions go here -->
+
+</beans>
+
+(Here dependency injected using setter method)
+
+================================================================================================
+Read Object using Application Context.
+
+package com.cisco.appcontextdemo;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.cisco.appcontextdemo.bean.Student;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+      ApplicationContext context= new ClassPathXmlApplicationContext("beans.xml");
+      
+      Student obj1=(Student) context.getBean("s1");
+      Student obj2=context.getBean("s2",Student.class);
+      System.out.println("First User: "+ obj1.getId()+" "+obj1.getName());
+      System.out.println("Second User: "+ obj2.getId()+" "+obj2.getName());
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="foodItem" class="com.cisco.inheritancedemo.bean.FoodItem">
+		<property name="name" value="Veggie Pizza"></property>
+		<property name="price" value="299"></property>
+	</bean>
+
+	<bean id="pizza" class="com.cisco.inheritancedemo.bean.Pizza" parent="foodItem">
+		<property name="name" value="Veggie Supreme Pizza"></property>
+		<property name="size" value="10"></property>
+		<property name="toppings" value="cheese, bell peppers,corns"></property>
+	</bean>
+
+	<!-- more bean definitions go here -->
+
+</beans>

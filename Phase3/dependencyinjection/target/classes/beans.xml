@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Address Bean Created -->
+	<bean id="addRef" class="com.cisco.dependencyinjection.bean.Address">
+		<property name="adrsLine" value="2323 Street B"></property>
+		<property name="city" value="Mumbai"></property>
+		<property name="state" value="Maharastra"></property>
+		<property name="zipcode" value="453203"></property>
+	</bean>
+	<!-- Restaurant Bean -->
+	<bean id="rest" class="com.cisco.dependencyinjection.bean.Restaurant">
+		<property name="name" value="Chings Corner"></property>
+		<property name="phone" value="+91 99999 11112"></property>
+		<property name="operatingHours" value="10:00 to 22:00"></property>
+		<property name="rating" value="4.8"></property>
+	<!-- 	<property name="address" ref="addRef"></property> -->
+		<constructor-arg ref="addRef"></constructor-arg>
+		
+		<property name="searchKeywords">
+			<list>
+				<value>Chings Corner</value>
+				<value>Coffee Shop</value>
+				<value>Cake</value>
+				<value>Pizza</value>
+				<value>Pastry Shop</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- more bean definitions go here -->
+
+</beans>

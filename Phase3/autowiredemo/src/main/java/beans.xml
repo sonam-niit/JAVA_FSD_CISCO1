@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
+		<!--  Add below line for enable annotation -->
+	<context:annotation-config />
+	
+	<bean id="user" class="com.cisco.autowiredemo.bean.User">
+		<property name="name" value="John Doe" />
+		<property name="email" value="john.doe@gmail.com" />
+		<!-- <property name="order" ref="order"></property> -->
+	</bean>
+
+	<bean id="order" class="com.cisco.autowiredemo.bean.Order">
+		<property name="orderId" value="101"></property>
+		<property name="dateTimeStamp" value="22nd Jan, 2024 12:39"></property>
+		<property name="amount" value="8999"></property>
+	</bean>
+
+</beans>
