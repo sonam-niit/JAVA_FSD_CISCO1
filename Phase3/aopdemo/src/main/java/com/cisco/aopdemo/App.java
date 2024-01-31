@@ -14,6 +14,7 @@ public class App
         
         System.out.println(product);
         product.purchaseProduct("Home", "8 PM evening", "sonam@gmail.com");
+        product.purchaseProduct("Home", "8 PM evening", "sonam@gmail.com");
         
     }
 }
