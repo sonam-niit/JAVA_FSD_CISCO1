@@ -1,6 +1,7 @@
 package com.cisco.rest.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,8 @@ public class ProductServiceImpl implements ProductService{
 		return productRepository.findAll();
 	}
 	@Override
-	public Product getProductById(Long id) {
-		return productRepository.findById(id).orElse(null);
+	public Optional<Product> getProductById(Long id) {
+		return productRepository.findById(id);
 	}
 	@Override
 	public void deleteProductById(Long id) {
@@ -32,7 +33,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 	@Override
 	public Product updateProductById(Product product, Long id) {
-		Product exisctingProduct= getProductById(id);
+		Product exisctingProduct= getProductById(id).orElse(null);
 		if(exisctingProduct!=null) {
 			exisctingProduct.setName(product.getName());
 			exisctingProduct.setPrice(product.getPrice());
