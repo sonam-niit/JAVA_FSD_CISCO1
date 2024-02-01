@@ -29,14 +29,30 @@ public class OrderController {
 				.body(newOrder);
 	}
 	
+	//return Response in the form of String
+//	@GetMapping("{id}")
+//	public ResponseEntity<String> getOrderById(@PathVariable Long id){
+//				
+//		Order order=service.getOrderById(id).orElse(null);
+//		if(order!=null) {
+//			String productDetails= service.getProductDetails(order.getProductId());
+//			return ResponseEntity.ok("Order Details: "+order.getId()+" Custome name: "
+//			+order.getCustomerName()+" Product Details: "+productDetails);
+//		}else 
+//			return ResponseEntity.notFound().build();
+//	}
+	
+	//Return Response in the Form of Product Object
 	@GetMapping("{id}")
 	public ResponseEntity<OrderResponse> getOrderById(@PathVariable Long id){
+				
 		Order order=service.getOrderById(id).orElse(null);
 		if(order!=null) {
-			String productDetails= service.getProductDetails(order.getProductId());
-			System.out.println(productDetails);
-			OrderResponse resp= new OrderResponse(order.getId(),productDetails,order.getCustomerName());
-			return ResponseEntity.ok(resp);
+			OrderResponse resp= 
+					new OrderResponse(order.getId(), 
+							service.getCleanProductDetails(order.getProductId()),
+							order.getCustomerName());
+			return ResponseEntity.ok().body(resp);
 		}else 
 			return ResponseEntity.notFound().build();
 	}

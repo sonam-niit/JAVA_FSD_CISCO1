@@ -1,5 +1,6 @@
 package com.cisco.rest.service;
 
+import java.io.IOException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.cisco.rest.model.Order;
+import com.cisco.rest.model.Product;
 import com.cisco.rest.repo.OrderRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -34,5 +37,16 @@ public class OrderServiceImpl implements OrderService{
 		restTemplate.getForEntity("http://localhost:8080/api/products/"+productId, String.class);
 		return productResonse.getBody();
 	}
+	// Use Jackson ObjectMapper for Converting String response into Object 
+	@Override
+    public Product getCleanProductDetails(Long productId) {
+        try {
+            Product product = new ObjectMapper().readValue(getProductDetails(productId), Product.class);
+            return product;
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
 
 }
