@@ -1,0 +1,80 @@
+Step 1: 
+create Simple Springboot application with only spring web dependency
+add one main controller inside the com.cisco.controller folder
+@RestController
+public class MainController {
+
+	@GetMapping("/")
+	public String greeting() {
+		return "Good AfterNoon..!!";
+	}
+	
+	@GetMapping("/welcome/{name}")
+	public String welcome(@PathVariable String name) {
+		return "Welcome "+name;
+	}
+}
+
+Check the App locally and see the api for / and /welcome is working.
+
+Step 2: Create Jar File
+maven clean
+maven install
+
+Step 3: creating Amazon EC2 instance, select Ubuntu OS and then connect it with aws cli
+	by using ssh command
+
+Step 4: create one folder named java-apps using below command
+	>mkdir java-apps
+
+	check its created or not using ls command
+	>ls
+
+Step 5: execute logout command to upload jar file on EC2 instance.
+	>logout
+
+step 6: Copy your jar file from your project folder and add it to the same location where your .pem file is available.
+	scp -i springboot.pem firstapp-0.0.1-SNAPSHOT.jar ubuntu@ec2-18-209-9-115.compute-1.amazonaws.com:java-apps
+
+	springboot.pem: key pair file which you have downloaded while creating your instance
+	firstapp-0.0.1-SNAPSHOT.jar: your jar file
+	ubuntu@ec2-18-209-9-115.compute-1.amazonaws.com: you instance link you can copy from ssh command
+	:java-apps : java-apps is the folder where you want to upload your JAR file
+
+Step 7: again connect using ssh command
+	>ssh -i "springboot.pem" ubuntu@ec2-18-209-9-115.compute-1.amazonaws.com
+
+Step 8: You can check uploaded jar file by moving to java-apps folder and execute ls command
+	>cd java-apps
+	>ls
+step 9: if JAR file is uploaded then let's run it, for than install JDK
+	>sudo apt update	
+	>sudo apt install openjdk-17-jdk openjdk-17-jre
+	It will propmt with installation confirmation type y and enter
+	Once installed Check Java Version
+	>java -version
+
+step 10: Let's execute Jar File
+	>java -jar firstapp-0.0.1-SNAPSHOT.jar
+	It will run yoour springboot application and you can see the console like app is running on port 8080.
+
+step 11: to check output browser
+	go to your instance copy public Ip and then add port 8080
+
+	192.89.56.10:8080/
+	(you can see the output of your Springboo Application)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
