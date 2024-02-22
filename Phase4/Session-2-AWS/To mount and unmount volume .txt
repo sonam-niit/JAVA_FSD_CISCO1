@@ -1,0 +1,30 @@
+To mount and unmount volume 
+through command
+
+connect your instance using aws cli
+>ssh -i "Volumedemo.pem" ec2-user@ec2-54-210-81-220.compute-1.amazonaws.com
+
+check attached volumes.
+>lsblk
+
+/xvda is default attached volume
+/xvdf is externally attached volume
+
+let's check if your volume has any data
+>sudo file -s /dev/xvdf
+
+Let's format the volume to ext4 filesystem.
+>sudo mkfs -t ext4 /dev/xvdf
+
+let's create some folders and add it to this external volume.
+>sudo mkdir /testdata
+mount that directory to ext volumne
+>sudo mount /dev/xvdf /testdata/
+
+to check its mounted or not
+>lsblk
+
+for unmount
+>sudo umount /dev/xvdf
+
+again check using lsblk
