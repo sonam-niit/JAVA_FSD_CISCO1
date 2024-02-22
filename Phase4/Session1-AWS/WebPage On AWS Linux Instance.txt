@@ -1,0 +1,23 @@
+Step 1: create one AWS EC2 Instance with AWS Linux 
+	set HTTP and AllTCP in Network
+
+Step 2: Connect with AWS CLI using ssh link
+	ssh -i "springboot.pem" ec2-user@ec2-100-26-29-207.compute-1.amazonaws.com
+
+Step 3: install HTTPd Server
+	>sudo yum install httpd -y
+
+step 4: move to the folder /var/www/html
+	cd /var/www/html
+
+Step 5: Once you are here let's create one HTML file using VI Editor
+
+	sudo vi index.html
+	to write code press i and start typing you html code
+	to stop press esc --> to save and exit type
+	:wq!
+step 6: Start Http Service
+
+	sudo service httpd start
+
+Step 7: open your publc Ip and see with http protocol and you can see the output of your HTML Code
