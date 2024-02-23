@@ -1,0 +1,339 @@
+-Open Simplilearn FSD Bootcamp Lab
+-Once it is open you can click on auth URL to access Lab in Browser
+-You can See one VM running open that 
+-open terminal
+
+execute below commands
+
+-sudo docker version
+-sudo docker -v or -sudo docker --version
+
+Output: 20.10.11
+
+Docker Containers
+-------------------------
+>sudo docker container ls
+
+Docker Images:
+------------------------
+>sudo docker images
+
+Docker Volume
+--------------------------
+>sudo docker volume ls
+
+Task 1 :: PULL THE IMAGE FROM DOCKER
+----------------------------------------
+
+Step 1: pull image
+>sudo docker pull docker/getting-started
+
+Step 2: Check Image pulled
+>sudo docker images
+
+Step 3: Run the image in docker container with some specific PORT Number
+---------------------------------------------------
+>sudo docker run -p 80:80 docker/getting-started
+
+Step 4: Exit the container
+>exit or ctrl+c
+
+Step 5: Check the status of Running container
+------------------------------------------------
+>sudo docker ps -a
+
+Step 6: Detach The container
+>sudo docker run -d -p 80:80 docker/getting-started
+
+step 7: Check the status of Container
+	>sudo docker container ps -a
+
+step 8: check the output in the browser type loclahost and you can see the output of getting started container
+
+Step 9: Stop Container
+--------------------------
+check all the running conatiner and get the name of you container which you want to stop
+>sudo docker container ls
+
+>sudo docker stop romantic_jennings (add your name of container)
+
+Step 10: Container Removal
+>sudo docker ps -a (check the name of the container which is already exited)
+
+>sudo docker rm name_of_container
+>sudo docker rm -f name_of_container (use -f flag to remove container forcefully)
+
+Giving Own name to container
+>sudo docker run -d -p 80:80 --name  my_getting_started_app docker/getting-started
+(try to stop and remove as well)
+
+Step 11: Remove Images
+----------------------------
+>sudo docker images (get the image name which you want to remove)
+
+>sudo docker rmi name-of-image
+>sudo docker rmi -f name-of-image
+
+(after removal check again the image removed or not)
+
+Task 2:
+------------------
+Pull the ready images from docker hub
+
+>sudo docker pull ubuntu
+
+>sudo docker pull mysql
+
+>sudo docker pull mysql:5.7
+
+check images
+>sudo docker images 
+
+Remove 5.7 version image
+>sudo docker rmi mysql:5.7
+
+Let's run mysql image in docker container
+>sudo docker run --name my_mysql_container -e MYSQL_ROOT_PASSWORD=123456 -d mysql
+
+>sudo docker container ls
+
+sudo docker exec -it my_mysql_container mysql -uroot -p
+
+(enter your secret password and here we go you are connected with mysql)
+create some queries and check.
+
+For Creating the Image we need to understand Docker file
+------------------------------------------------------------------
+What is DockerFile?
+
+its a file which doesn't contain any extention and its having some instructions written inside the same for creating/building a docker Image.
+These instruction steps define steps needed to create an environment where you can run your application.
+
+1. FROM: it specifies the base image which is used to build your image.
+	FROM <image name>:<tagname>
+	FROM ubuntu:20.04
+
+2. LABEL: adding metadata to the images
+	LABEL maintainer="Sonam Soni <sonam@gmail.com>"
+
+3. RUN : executes command in Docker image
+	RUN apt-get update && apt-get install -y package-name
+4. COPY / ADD
+	COPY <src> <dest>
+	ADD <src> <dest>
+5. WORKDIR: add working directory path
+	WORKDIR /path/to/directory
+6. ENV: sets an environment variable to your Docker image
+	ENV MY_VAR=value
+	ENV MONGO_URI=mongod://localhost:27017/test
+7. EXPOSE: expose port on the docker container
+	  EXPOSE 8080
+8. CMD: specify some default command to run when your container starts
+	CMD ["","",""]
+9. ENTRYPOINT: main command to run when your container starts your app
+	ENTRYPOINT["exec","parameters"]
+
+
+Let's Build Image for the ready made dockerfile
+------------------------------------------------------------
+clone my repository
+>git clone https://github.com/sonam-niit/docker_master.git
+>ls (check its clones or not)
+>cd docker_master
+
+---------Command to buid and image *******************
+>sudo docker build -t phpcode .
+ (. is mandatory)
+
+>sudo docker images
+
+********* Let's Run this image in container ***************
+>sudo docker run -d --name mywebsite -p 80:80 phpcode
+
+>sudo docker run -d -p 80:80 phpcode
+
+Check the same using curl command
+>curl localhost
+	(if its running you can see index.php in console)
+
+******************** Push Image to the Docker Hub *********************
+
+Create Account to DockerHub
+------------------------------------
+Let's connect this docker account from our system
+
+>sudo docker login
+	prompt with username: enter your docker username
+		    password: type your password (The password which you type is not visible for security reasons) just press enter
+-- If all good you will connected with your docker hub.
+
+Create Tag to your Docker Images
+>sudo docker tag phpcode sonamsoni/ciscoimage
+Push Image to your Docker account
+>sudo docker push sonamsoni/ciscoimage
+
+Once its uploaded check docker hub to see the image uploaded
+
+
+
+*******     Docker Volume ********************
+
+Volumes are the storage, where we can persist our data generated by docker containers.
+Using that we can share data between containers and also between container and host.
+Docker Volumes are stored outside the container's filesystem so if you want to see your data after your container stops or remove you can check the same.
+
+Let's create one Volume
+>sudo docker volume create  my_volume
+
+Let's run image in one container with volume
+> sudo docker run -d --name my_container -v my_volume:/data phpcode
+
+container created with Name: my_container
+attached with volume: my_volume
+stores the containers data inside: /data directory
+
+Get List of Volumes
+-----------------------------
+>sudo docker volume ls
+
+Inspect a perticular volume
+>sudo docker inspect my_volume
+(my_volume is the volume name)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

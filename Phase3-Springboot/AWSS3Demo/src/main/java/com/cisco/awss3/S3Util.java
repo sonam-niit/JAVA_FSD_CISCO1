@@ -11,11 +11,12 @@ import com.amazonaws.services.s3.model.Bucket;
 
 public class S3Util {
 
+	private static String accessKeyId="AKIAQZL74JVKOMGLZFLI";
+	private static String secretKeyId="GHHEFTtO0UDB6/AceBgwprBZPU80kKnK9OTwwzle";
+	private static BasicAWSCredentials awsCredentials= 
+			new BasicAWSCredentials(accessKeyId, secretKeyId);
 	public static void listBucketsInS3() {
-		String accessKeyId="AKIAUN6Q2PB7WWNPPMGM";
-		String secretKeyId="nGtCljxDjBkp8GJ7GASEE4mG38EHshuiPY+E7A/I";
-		BasicAWSCredentials awsCredentials= 
-				new BasicAWSCredentials(accessKeyId, secretKeyId);
+		
 		try {
 			AmazonS3 s3Ref= 
 					AmazonS3ClientBuilder.standard()
@@ -29,6 +30,32 @@ public class S3Util {
 				System.out.println("Creation Date: "+bucket.getCreationDate());
 				System.out.println("Owner: "+bucket.getOwner());
 			});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void createBucketInS3(String bucketName) {
+		try {
+			AmazonS3 s3Ref= 
+					AmazonS3ClientBuilder.standard()
+					.withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+					.withRegion(Regions.DEFAULT_REGION)
+					.build();
+			s3Ref.createBucket(bucketName);
+			System.out.println("Bucket Created");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void deleteBucketInS3(String bucketName) {
+		try {
+			AmazonS3 s3Ref= 
+					AmazonS3ClientBuilder.standard()
+					.withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+					.withRegion(Regions.DEFAULT_REGION)
+					.build();
+			s3Ref.deleteBucket(bucketName);
+			System.out.println("Bucket Created");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
