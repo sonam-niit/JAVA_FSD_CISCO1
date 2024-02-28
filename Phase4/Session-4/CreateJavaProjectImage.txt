@@ -1,0 +1,78 @@
+Step1: Create Java Project
+If you are using a perticular JDK version then while creating the project itself select the Java Version from Dropdwn like JavaSE-11 or JavaSE-17
+
+Step2:
+	create a simple code for Java
+	and check from your eclipse its working or not.
+
+	package com.cisco.app;
+
+import java.util.Scanner;
+
+public class MyApp {
+
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		int cashback[]= {30,40,10,4,60,23,90,45};
+		
+		System.out.println("Enter Any Number");
+		int luckyNo= sc.nextInt();
+		try {
+			int cash=cashback[luckyNo];
+			System.out.println("Congratulation..!! you won CashBack of "+cash);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Better Luck next time....!!");
+		}
+		finally {
+			sc.close();
+		}
+	}
+}
+
+Step 3: Run and check this is working file or not, if its working fine then also check its running from CMD or not
+	oprn your project folder in CMD and move to bin folder.
+
+	to run your Java file execute below command
+
+	java com.cisco.app.MyApp
+
+Step 4: If all good then create Dockerfile at root location of your project
+
+FROM openjdk:17
+
+RUN mkdir /MyCashbackApp
+
+COPY bin/ /MyCashbackApp
+
+WORKDIR /MyCashbackApp
+
+CMD java com.cisco.app.MyApp
+
+
+Step 5: Push code on github Repo
+
+Step 6: Connect to your Ubuntu Instance using awscli
+
+step 7: clone your repo there using git clone command
+
+	git clone https://github.com/sonam-niit/SimpleJavaWithDocker.git
+
+Step 8: move to that folder
+	cd SimpleJavaWithDocker
+
+Step 9: create image using below command
+
+	sudo docker build -t simplejava:1.0 .
+
+Step 10: if image created sucessfully check using below command
+	
+	sudo docker images
+
+
+
+
+
+
+
+
+
