@@ -68,6 +68,78 @@ Step 10: if image created sucessfully check using below command
 	
 	sudo docker images
 
+Now Let's update code and create image with another version.
+
+Step 1: Update your MyApp.java as below code
+
+public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int cashback[] = { 30, 40, 10, 4, 60, 23, 90, 45 };
+
+		while (true) {
+			System.out.println("Enter Any Number");
+			int luckyNo = sc.nextInt();
+			try {
+				int cash = cashback[luckyNo];
+				System.out.println("Congratulation..!! you won CashBack of " + cash);
+			} catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println("Better Luck next time....!!");
+			} 
+			System.out.println("Enter y to exit or press any key to continue");
+			String input= sc.next();
+			if(input.equals("y") || input.equals("Y")) {
+				break;
+			}
+		}
+		sc.close();
+	}
+
+Step 2: Push on github Repo.
+
+Step 3: clone the existing repo
+	>git pull origin main
+
+step 4: create another image with noe tag
+	>sudo docker build -t simplejava:2.0 .
+step 5: check docker images
+	>sudo docker images
+
+	you can see the seperate image with diffrent tags.
+
+===================================================================================
+Let's Run these images using docker container
+
+sudo docker run -d  --name javacontainer simplejava:1.0
+(if you run this command it will execute detached mode so I can't access the Input and Output)
+
+It will directly come to the exited status you can check status using below command
+>sudo docker ps -a
+
+Remove the same
+> sudo docker rm javacontainer
+
+Now run it ininteractive mode using -i flag
+> sudo docker run -i --name javacontainer simplejava:1.0
+You can see the propmt and check the output.
+
+to run another image either remove your previus container or give the container name diffrently.
+
+>sudo docker run -i --name javacontainer1 simplejava:2.0
+
+Check the output.
+
+To remove:
+sudo docker rm javacontainer
+sudo docker rm javacontainer1
+
+
+
+
+
+
+
+
+
 
 
 

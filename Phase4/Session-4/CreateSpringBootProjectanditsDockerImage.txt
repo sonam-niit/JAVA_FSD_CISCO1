@@ -1,0 +1,56 @@
+Create one Springboot project with Spring-web dependency.
+
+Create Product inside model package, ProductRepository inside repo package and ProductController inside controller package.
+Code is available to belo repo.
+https://github.com/sonam-niit/SpringbootDemoDocker.git
+
+ALso cleate Docker file for Docker Image creation
+
+You can push your own code to repository as well.
+=============================================================================================
+Let's connect with AWS Instance using ssh command
+
+1. then clone my github repo
+>git clone https://github.com/sonam-niit/SpringbootDemoDocker.git
+
+2.Move to the folder 
+>cd SpringbootDemoDocker
+
+3. get all updates in ubuntu
+>sudo apt-get update
+4. install openjdk-17
+>sudo apt install openjdk-17-jdk openjdk-17-jre -y
+
+5. check Java Version
+>java -version
+
+6. install maven
+>sudo apt-get install maven -y 
+
+7. check Maven Version
+>mvn --version
+
+8. create Jar
+>mvn clean install
+
+9. Build Docker Image
+>sudo docker build -t sbapp:1.0 .
+
+10. check images
+>sudo docker images
+
+11. Run image in container
+>sudo docker run -d --name restcontainer -p 8080:8080 sbapp:1.0
+>sudo docker container ls
+
+If its Up then go to your instance copy its public IP
+http://3.88.230.4:8080/api/product and try to check the APIs like get and POST method and check the responses
+
+
+
+
+
+
+
+
+
