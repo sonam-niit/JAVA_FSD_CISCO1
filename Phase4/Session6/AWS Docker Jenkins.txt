@@ -1,0 +1,88 @@
+Let's create AWS ubuntu instance
+confugured required things in instance and also download the pem file.
+
+Connect with instance from aws-cli
+
+--------Let's Install Docker---------
+https://docs.docker.com/engine/install/ubuntu/
+
+Comman1:
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+command 2:
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+Command 3: sudo docker version
+
+-------------------------Install OpenJDK17-----------------------------
+sudo apt-get update
+sudo apt install openjdk-17-jdk openjdk-17-jre
+java -version
+
+--------------------------Install Maven --------------------------------
+sudo apt-get install maven
+mvn -version
+
+-----------------------------Install Jenkins-------------------------------
+https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+
+-----Enable Jenkins
+sudo systemctl enable jenkins
+
+---Start jenkins
+sudo systemctl start jenkins
+
+----Check the status of Jenkins
+sudo systemctl status jenkins
+(you can close this using ctrl+c)
+
+Now its jenkins service is running then copy public Ip of instance and open it with 8080 port
+you can see jenkins installation
+
+copy pass
+>sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+----------------------------------------------------------------------------------
+Complete the Installation steps and then create one pipeline 
+
+Select Pipelinescript from SCM
+Add below Repo: https://github.com/tuser6794/MySpringBootApp.git
+
+Check the stages execution.
+
+If its taking time wait untill its completed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
