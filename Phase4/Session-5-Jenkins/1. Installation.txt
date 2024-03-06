@@ -1,0 +1,56 @@
+Step 1: Go to jenkins.io/downloads 
+and download jenkins.war file general one
+
+Step 2: Check your Java version
+	java -version
+
+Step 3: latest war files will work with JDK 11,17 and 21
+
+Step 4: execute java -jar jenkins.war
+
+Make sure your 8080 is free, its busy it won;t work as jenkins is running of PORT No 8080.
+
+Step 5: copy the initial password from terminal open in browser
+localhost:8080
+paste the password
+
+click on install suggested plugins.
+
+step 6: set your admin account by enterning username,password, Name and email
+
+You will be redirected to your jenkins is ready screen click on use jenkins and that's it now you will be dashboard.
+===========================================================================================================
+Click on create New Job
+
+Give the name like MyJob1
+select freeStyleProject
+
+Add Description: My Simple Jenkins Workflow
+
+Check on Discard old build
+Days to keep builds: 3
+Max # of builds to keep: 50
+
+Source Code Management continue with None
+
+Build Steps:
+In its linux,unbuntu or Mac then choose Execute Shell
+type: java -version
+
+Select one more execute shell type 
+echo "Thank you for using Jenkins"
+
+(If you are using Windows OS- execute windos batch command)
+
+click on save.
+
+click on buid Now.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+We have created our project in our system but we want to create docker images and to use jenkins we cloned our repo to our lab
+
+>then I have started my docker container used it in my project
+
+>sudo docker run --name mysql_container -d -p 3309:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
+
+for local system if you wnat to connect your application to this container open project in eclipse of your lab and then
+edit the URL
+
+spring.datasource.url=jdbc:mysql://loclahost:3309/phaseendproject?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+
+execute your project main file as Java Application and your application will use mysql containers DB
+
+>sudo docker exec -it mysql_container mysql -uroot -p
+type password and connect with container mysql check Db and its tables
