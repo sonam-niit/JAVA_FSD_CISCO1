@@ -1,0 +1,28 @@
+Open Your lab and check if any containers names used in exited status
+>sudo docker ps -a
+Remove non used containers
+>sudo docker rm name-container
+
+Let's create on network to run our application under the same network.
+>sudo docker network create project
+>sudo docker network ls
+
+Let's run mysql container under this network and check the connectivity.
+
+>sudo docker run --name mysql_container --network project -d -p 3309:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
+
+check its status
+>sudo docker logs mysql_container
+>sudo docker exec -it mysql_container mysql -uroot -p
+enter password and create Database which you want to use for your project
+>create database phaseendproject;
+exit
+
+Let's create clone the project
+>git clone https://github.com/sonam-niit/PetsClinic.git
+
+>sudo docker build -t phase4project .
+>sudo docker images
+
+>sudo docker run --name project_container -d -p 9090:9090 --network project phase4project
+>sudo docker logs project_container (if running then test APIs through POSTMAN)
